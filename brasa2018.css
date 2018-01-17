@@ -1,0 +1,64 @@
+/*
+Você pode adicionar seu próprio CSS aqui.
+
+Clique no ícone de ajuda acima para saber mais.
+*/
+
+.section-portfolio .entry-excerpt {
+display: none;
+}
+
+.section-portfolio .list-article {
+	height: 221px !important;
+}
+
+.section-services .service-item {
+	display: none;
+}
+
+.contact-form input[type=email], .contact-form input[type=text] {
+    width: 90% !important;
+    max-width: 90%;
+}
+
+.contact-form textarea {
+    height: 100px;
+    width: 90%;
+}
+
+.contact-form input[type="submit"] {
+	width: 90% !important;
+    max-width: 90%;
+}
+
+.section-featuredpage:before {
+    background-color: rgba(0,0,0,0.1);
+    display: block;
+}
+header:not(.header-fixed ) img {
+	opacity:0;
+}
+.section-portfolio .container {
+	width:100% !important;
+	max-width:100%;
+}
+.section-portfolio .container .list-article-thumb {
+	margin-right:0;
+}
+.section-portfolio .container .list-article-content {
+	display:none;
+}
+#portfolio .section-content {
+	overflow: inherit !important;
+}
+#portfolio .col-sm-12 {
+	padding-left: 0 !important;
+	padding-right:0 !important;
+}
+#portfolio {
+	padding-bottom: 0;
+	overflow: inherit;
+}
+.header-fixed .coletivo-menu>li>a {
+    color: #188EA0;
+}
