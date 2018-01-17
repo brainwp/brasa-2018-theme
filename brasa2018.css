@@ -35,7 +35,7 @@ display: none;
     background-color: rgba(0,0,0,0.1);
     display: block;
 }
-header:not(.header-fixed ) img {
+body.home header:not(.header-fixed ) img {
 	opacity:0;
 }
 .section-portfolio .container {
@@ -59,6 +59,6 @@ header:not(.header-fixed ) img {
 	padding-bottom: 0;
 	overflow: inherit;
 }
-.header-fixed .coletivo-menu>li>a {
+.header-fixed .coletivo-menu>li>a, body:not( .home ) header .coletivo-menu>li>a{
     color: #188EA0;
 }
