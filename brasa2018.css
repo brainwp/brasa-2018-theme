@@ -45,6 +45,15 @@ body.home header:not(.header-fixed ) img {
 .section-portfolio .container .list-article-thumb {
 	margin-right:0;
 }
+@media screen and ( max-width: 700px ) {
+	.section-portfolio .container .list-article-thumb {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	.section-portfolio .container .list-article-thumb img {
+		height: 160px;
+	}
+}
 .section-portfolio .container .list-article-content {
 	display:none;
 }
@@ -55,10 +64,16 @@ body.home header:not(.header-fixed ) img {
 	padding-left: 0 !important;
 	padding-right:0 !important;
 }
+
 #portfolio {
 	padding-bottom: 0;
 	overflow: inherit;
 }
 .header-fixed .coletivo-menu>li>a, body:not( .home ) header .coletivo-menu>li>a{
     color: #188EA0;
+}
+@media screen and ( max-width: 700px ) {
+	#portfolio article.list-article {
+		height:160px !important;
+	}
 }
