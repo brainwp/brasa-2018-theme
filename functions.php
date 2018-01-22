@@ -20,7 +20,9 @@
 function brasa2018_enqueue_scripts() {
 	$template_url = get_stylesheet_directory_uri();
 
+
 	// Loads Brasa2018 CSS file
+	wp_enqueue_style( 'brasa2018-sourcesans', 'https://fonts.googleapis.com/css?family=Source+Sans+Pro', array(), null, 'all' );
 	wp_enqueue_style( 'brasa2018-css', $template_url . '/brasa2018.css', array(), null, 'all' );
 
 	// Loads Brasa2018 JS file

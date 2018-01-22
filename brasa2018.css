@@ -77,3 +77,14 @@ body.home header:not(.header-fixed ) img {
 		height:160px !important;
 	}
 }
+/* Source Sans pro */
+body #page *:not( i ) {
+	font-family: 'Source Sans Pro', sans-serif !important;
+}
+body h1,
+body h2,
+body h3,
+body h4,
+body h5 {
+	font-family: 'Source Sans Pro', sans-serif !important;
+}
