@@ -77,6 +77,13 @@ body.home header:not(.header-fixed ) img {
 		height:160px !important;
 	}
 }
+@media screen and ( min-width: 1360px ) {
+	#portfolio article.list-article img,
+	#portfolio article.list-article {
+		height: 320px !important;
+	}
+
+}
 /* Source Sans pro */
 body #page *:not( i ) {
 	font-family: 'Source Sans Pro', sans-serif !important;
