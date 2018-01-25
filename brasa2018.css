@@ -4,6 +4,12 @@ Você pode adicionar seu próprio CSS aqui.
 Clique no ícone de ajuda acima para saber mais.
 */
 
+@media ( max-width: 520px ) {
+	section#hero h2.hero-large-text > img {
+		max-width: 75%;
+	}
+}
+
 .section-portfolio .entry-excerpt {
 display: none;
 }
