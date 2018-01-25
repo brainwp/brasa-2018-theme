@@ -95,7 +95,16 @@ body.home header:not(.header-fixed ) img {
 		height: 320px !important;
 	}
 }
+#portfolio article.list-article img {
+	transition:300ms ease all;
+	opacity: 1 !important;
 
+}
+#portfolio article.list-article img:hover {
+	transform: scale(1.1060);
+	transition:300ms ease all;
+	box-shadow: -2px 2px 5px 1px rgba(0,0,0,0.29);
+}
 /* Source Sans pro */
 body #page *:not( i ) {
 	font-family: 'Source Sans Pro', sans-serif !important;
