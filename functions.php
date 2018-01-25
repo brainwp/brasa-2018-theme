@@ -31,11 +31,57 @@ function brasa2018_enqueue_scripts() {
 
 add_action( 'wp_footer', 'brasa2018_enqueue_scripts', 1 );
 
+
+// Register Custom Post Type
+function custom_post_type_depoimentos() {
+
+	$labels = array(
+		'name'                => _x( 'Depoimentos', 'Post Type General Name', 'tema-brasa' ),
+		'singular_name'       => _x( 'Depoimento', 'Post Type Singular Name', 'tema-brasa' ),
+		'menu_name'           => __( 'Depoimentos', 'tema-brasa' ),
+		'parent_item_colon'   => __( 'Item parente', 'tema-brasa' ),
+		'all_items'           => __( 'Todos depoimentos', 'tema-brasa' ),
+		'view_item'           => __( 'Ver depoimento', 'tema-brasa' ),
+		'add_new_item'        => __( 'Adicionar novo depoimento', 'tema-brasa' ),
+		'add_new'             => __( 'Adicionar novo', 'tema-brasa' ),
+		'edit_item'           => __( 'Editar item', 'tema-brasa' ),
+		'update_item'         => __( 'Atualizar item', 'tema-brasa' ),
+		'search_items'        => __( 'Buscar depoimentos', 'tema-brasa' ),
+		'not_found'           => __( 'Não en
+		contrado', 'tema-brasa' ),
+		'not_found_in_trash'  => __( 'Não encontrado na lixeira', 'tema-brasa' ),
+	);
+	$args = array(
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'thumbnail', ),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 5,
+		'menu_icon'           => 'dashicons-format-aside',
+		'can_export'          => true,
+		'has_archive'         => false,
+		'exclude_from_search' => true,
+		'publicly_queryable'  => true,
+		'capability_type'     => 'page',
+	);
+	register_post_type( 'depoimentos', $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'custom_post_type_depoimentos', 0 );
+
+
+
 /**
  * Página de equipe
  */
 // Register Custom Post Type
-function custom_post_type() {
+function custom_post_type_equipe() {
 
 	$labels = array(
 		'name'                => _x( 'Equipe', 'Post Type General Name', 'tema-brasa' ),
@@ -49,7 +95,8 @@ function custom_post_type() {
 		'edit_item'           => __( 'Editar item', 'tema-brasa' ),
 		'update_item'         => __( 'Atualizar item', 'tema-brasa' ),
 		'search_items'        => __( 'Buscar membro', 'tema-brasa' ),
-		'not_found'           => __( 'Não encontrado', 'tema-brasa' ),
+		'not_found'           => __( 'Não en
+		contrado', 'tema-brasa' ),
 		'not_found_in_trash'  => __( 'Não encontrado na lixeira', 'tema-brasa' ),
 	);
 	$args = array(
@@ -74,26 +121,27 @@ function custom_post_type() {
 }
 
 // Hook into the 'init' action
-add_action( 'init', 'custom_post_type', 0 );
+add_action( 'init', 'custom_post_type_equipe', 0 );
 
-if (!function_exists('get_field')) {
-  function get_field($field) {
-  	global $post;
-  	return get_post_meta($post->ID, $field, true);
-  }
-}
-if (!function_exists('the_field')) {
-  function the_field($field) {
-  	global $post;
-  	echo get_field($field);
-  }
-}
-function team_query( $query ) {
-    if ( is_post_type_archive('equipe') ) {
-        $query->set( 'orderby', 'rand' );
-        return;
-    }
-}
+
+// if (!function_exists('get_field')) {
+//   function get_field($field) {
+//   	global $post;
+//   	return get_post_meta($post->ID, $field, true);
+//   }
+// }
+// if (!function_exists('the_field')) {
+//   function the_field($field) {
+//   	global $post;
+//   	echo get_field($field);
+//   }
+// }
+// function team_query( $query ) {
+//     if ( is_post_type_archive('equipe') ) {
+//         $query->set( 'orderby', 'rand' );
+//         return;
+//     }
+// }
 add_action( 'pre_get_posts', 'team_query' );
 
 require get_template_directory() . '/inc/class-metabox.php';
@@ -150,3 +198,38 @@ $team_metabox->set_fields(
 		),
 	)
 );
+
+// 1. customize ACF path
+add_filter('acf/settings/path', 'my_acf_settings_path');
+
+function my_acf_settings_path( $path ) {
+
+    // update path
+    $path = get_stylesheet_directory() . '/inc/advanced-custom-fields/';
+
+    // return
+    return $path;
+
+}
+
+
+// 2. customize ACF dir
+add_filter('acf/settings/dir', 'my_acf_settings_dir');
+
+function my_acf_settings_dir( $dir ) {
+
+    // update path
+    $dir = get_stylesheet_directory_uri() . '/inc/advanced-custom-fields/';
+
+    // return
+    return $dir;
+
+}
+
+
+// 3. Hide ACF field group menu item
+add_filter('acf/settings/show_admin', '__return_false');
+
+
+// 4. Include ACF
+include_once( get_stylesheet_directory() . '/inc/advanced-custom-fields/acf.php' );

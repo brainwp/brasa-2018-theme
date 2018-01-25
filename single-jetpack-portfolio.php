@@ -16,26 +16,54 @@ get_header(); ?>
 
           </div>
           <div class="secao secao-margin" id="conteudo">
-            <h3>Desafio</h3>
-            <div class="conteudo-interno" id="desafio" >
-
-            </div>
-            <h3>Solução</h3>
-            <div class="conteudo-interno" id="solução" >
-
-            </div>
+            <?php $desafio = get_field( "desafio" );
+            $solucao = get_field( "solucao" );
+            $impacto = get_field( "impacto" );
+            $impacto = get_field( "impacto" );
+            $thumbnail_do_video = get_field( "thumbnail_do_video" );
+            $link_do_video = get_field( "link_do_video" );
 
 
-            <h3>Impacto</h3>
-            <div class="conteudo-interno" id="impacto" >
-
-            </div>
-
-
+            if( $desafio ) {
+                ?>
+                <h3>Desafio</h3>
+                <div class="conteudo-interno" id="desafio" >
+                  <?php echo $desafio; ?>
+                </div>
+                <?php
+            }
+            if( $solucao ) {
+                ?>
+                <h3>Solução</h3>
+                <div class="conteudo-interno" id="solução" >
+                  <?php echo $solucao; ?>
+                </div>
+                <?php
+            }
+            if( $impacto ) {
+                ?>
+                <h3>Impacto</h3>
+                <div class="conteudo-interno" id="impacto" >
+                  <?php echo $impacto; ?>
+                </div>
+                <?php
+            }
+          ?>
           </div>
-          <div class="secao secao-full row" id="video">
+          <?php
+          if( $thumbnail_do_video && $link_do_video ) {
+              ?>
+            <div style="background-image: url(<?php echo $thumbnail_do_video['url']; ?>);"class="secao secao-full row" id="video">
 
-          </div>
+              <div class="videolightbox__icon videolightbox-popup">
+                 <a href="<?php echo $link_do_video; ?>" data-scr="<?php echo $link_do_video; ?>" class="popup-video">
+                   <span class="video_icon"><i class="fa fa-play"></i></span>
+                 </a>
+              </div>
+            </div>
+          <?php
+          } ?>
+
           <div class="secao secao-margin row" id="depoimentos">
             <h3>Depoimentos</h3>
           </div>
