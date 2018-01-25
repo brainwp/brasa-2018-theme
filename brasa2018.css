@@ -111,3 +111,19 @@ body h5 {
 .single-jetpack-portfolio #mais {
 	text-align:left;
 }
+
+.tel {
+    padding-right: 0rem;
+    padding-left: 0rem;
+    font-size: 1.8em;
+}
+
+.profile-footer {
+    padding-right: 0rem;
+    padding-left: 0rem;
+    font-size: 1.8em;
+}
+
+.profile-header img {
+	margin: 0 0 40px;
+}
