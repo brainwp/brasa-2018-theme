@@ -152,3 +152,12 @@ footer.site-footer .site-info{
 	clear: both;
 	padding:60px 0;
 }
+
+/**
+ *
+ * Seção Pagina destacada
+ *
+*/
+.section-featuredpage {
+	background-attachment: fixed !important;
+}
