@@ -86,9 +86,24 @@ body.home header:not(.header-fixed ) img {
 @media screen and ( min-width: 1360px ) {
 	#portfolio article.list-article img,
 	#portfolio article.list-article {
+		height: 230px !important;
+	}
+}
+@media screen and ( min-width: 1900px ) {
+	#portfolio article.list-article img,
+	#portfolio article.list-article {
 		height: 320px !important;
 	}
+}
+#portfolio article.list-article img {
+	transition:300ms ease all;
+	opacity: 1 !important;
 
+}
+#portfolio article.list-article img:hover {
+	transform: scale(1.1060);
+	transition:300ms ease all;
+	box-shadow: -2px 2px 5px 1px rgba(0,0,0,0.29);
 }
 /* Source Sans pro */
 body #page *:not( i ) {
@@ -110,4 +125,29 @@ body h5 {
 }
 .single-jetpack-portfolio #mais {
 	text-align:left;
+}
+
+.tel {
+    padding-right: 0rem;
+    padding-left: 0rem;
+    font-size: 1.8em;
+}
+
+.profile-footer {
+    padding-right: 0rem;
+    padding-left: 0rem;
+    font-size: 1.8em;
+}
+
+.profile-header img {
+	margin: 0 0 40px;
+}
+/**
+ *
+ * Footer com bg de graffiti do site antigo
+ *
+*/
+footer.site-footer .site-info{
+	background: url( 'images/bg-rodape.jpg' ) #454545 repeat scroll center bottom;
+	clear: both;
 }
