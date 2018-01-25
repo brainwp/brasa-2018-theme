@@ -98,3 +98,10 @@ body h5 {
 .single-jetpack-portfolio h3, .single-jetpack-portfolio h2{
 	text-align:center;
 }
+.single-jetpack-portfolio .secao-margin{
+	max-width:1000px;
+	margin:0 auto;
+}
+.single-jetpack-portfolio #mais {
+	text-align:left;
+}

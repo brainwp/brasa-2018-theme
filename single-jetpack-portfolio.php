@@ -12,7 +12,6 @@ get_header(); ?>
 	<div id="content" class="site-content">
       <?php while ( have_posts() ) : the_post(); ?>
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-          <div class="entry-content">
           <div class="secao secao-full row" id="slider">
 
           </div>
@@ -51,7 +50,7 @@ get_header(); ?>
                     <a href="<?php echo $prev_post->guid ?>">
                       <?php
                       echo "<h4>".$prev_post->post_title.'</h4>';
-                      echo $prev_post->post_content;
+                      echo "<p>".wp_strip_all_tags($prev_post->post_content)."</p>";
                        ?>
                     </a>
                   </div>
@@ -82,7 +81,7 @@ get_header(); ?>
                       <a href="<?php echo $next_post->guid ?>">
                         <?php
                         echo "<h4>".$next_post->post_title."</h4>";
-                        echo $next_post->post_content;
+                        echo "<p>".wp_strip_all_tags($next_post->post_content)."</p>";
                          ?>
                       </a>
                     </div>
@@ -91,7 +90,7 @@ get_header(); ?>
                 endif
                 ?>
           </div>
-          <div class="secao secao-full section-social row" id="social">
+          <!-- <div class="secao secao-full section-social row" id="social">
             <div class="footer-connect">
               <div class="container">
                 <div class="row">
@@ -108,8 +107,10 @@ get_header(); ?>
                 </div>
               </div>
             </div>
-          </div>
-          </div><!-- .entry-content -->
+          </div> -->
+          <?php
+            include_once(get_template_directory()."/section-parts/section-social.php");
+          ?>
         </article><!-- #post-## -->
       <?php endwhile; // End of the loop. ?>
 	</div><!-- #content -->
