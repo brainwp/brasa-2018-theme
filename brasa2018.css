@@ -142,3 +142,12 @@ body h5 {
 .profile-header img {
 	margin: 0 0 40px;
 }
+/**
+ *
+ * Footer com bg de graffiti do site antigo
+ *
+*/
+footer.site-footer .site-info{
+	background: url( 'images/bg-rodape.jpg' ) #454545 repeat scroll center bottom;
+	clear: both;
+}
