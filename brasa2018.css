@@ -148,6 +148,7 @@ body h5 {
  *
 */
 footer.site-footer .site-info{
-	background: url( 'images/bg-rodape.jpg' ) #454545 repeat scroll center bottom;
+	background: url( 'images/bg-rodape.jpg' ) #454545 repeat fixed right center;
 	clear: both;
+	padding:60px 0;
 }
