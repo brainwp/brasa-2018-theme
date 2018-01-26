@@ -13,6 +13,15 @@
 */
 
 /**
+ * Set coletivo_load_default_fonts filter to false to avoid load default fonts
+ * @param boolean $value
+ * @return boolean
+ */
+function brasa2018_coletivo_load_default_fonts( $value ) {
+	return false;
+}
+add_filter( 'coletivo_load_default_fonts', 'brasa2018_coletivo_load_default_fonts', 10, 1 );
+/**
  * Load site scripts.
  *
  * @since 2.2.0
