@@ -13,7 +13,9 @@ get_header(); ?>
       <?php while ( have_posts() ) : the_post(); ?>
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
           <section class="secao secao-full row" id="slider">
-
+          <?php
+          $slider = get_field( "slider" );
+          echo do_shortcode(' [brasa_slider id="'.$slider->ID.'"]') ?>
           </section>
           <section class="secao secao-margin" id="conteudo">
             <?php $desafio = get_field( "desafio" );
