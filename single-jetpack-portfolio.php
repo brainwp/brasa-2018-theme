@@ -12,12 +12,12 @@ get_header(); ?>
 	<div id="content" class="site-content">
       <?php while ( have_posts() ) : the_post(); ?>
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-          <div class="secao secao-full row" id="slider">
+          <section class="secao secao-full row" id="slider">
 
-          </div>
-          <div class="secao secao-margin" id="conteudo">
+          </section>
+          <section class="secao secao-margin" id="conteudo">
             <?php $desafio = get_field( "desafio" );
-            $solucao = get_field( "solucao" );
+            $solucao = get_field( "solucao_projeto" );
             $impacto = get_field( "impacto" );
             $impacto = get_field( "impacto" );
             $thumbnail_do_video = get_field( "thumbnail_do_video" );
@@ -49,25 +49,25 @@ get_header(); ?>
                 <?php
             }
           ?>
-          </div>
+          </section>
           <?php
           if( $thumbnail_do_video && $link_do_video ) {
               ?>
-            <div style="background-image: url(<?php echo $thumbnail_do_video['url']; ?>);"class="secao secao-full row" id="video">
+            <section style="background-image: url(<?php echo $thumbnail_do_video['url']; ?>);"class="secao secao-full section-videolightbox row" id="video">
 
               <div class="videolightbox__icon videolightbox-popup">
                  <a href="<?php echo $link_do_video; ?>" data-scr="<?php echo $link_do_video; ?>" class="popup-video">
                    <span class="video_icon"><i class="fa fa-play"></i></span>
                  </a>
               </div>
-            </div>
+            </section>
           <?php
           } ?>
 
-          <div class="secao secao-margin row" id="depoimentos">
+          <section class="secao secao-margin row" id="depoimentos">
             <h3>Depoimentos</h3>
-          </div>
-          <div class="secao secao-margin row" id="mais">
+          </section>
+          <section class="secao secao-margin row" id="mais">
             <h2>Veja mais trabalhos</h2>
             <?php
               $prev_post = get_previous_post();
@@ -117,7 +117,7 @@ get_header(); ?>
                 <?php
                 endif
                 ?>
-          </div>
+          </section>
           <!-- <div class="secao secao-full section-social row" id="social">
             <div class="footer-connect">
               <div class="container">

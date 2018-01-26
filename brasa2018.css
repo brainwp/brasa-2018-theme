@@ -151,3 +151,17 @@ footer.site-footer .site-info{
 	background: url( 'images/bg-rodape.jpg' ) #454545 repeat scroll center bottom;
 	clear: both;
 }
+.single-jetpack-portfolio #video{
+	min-height: 200px;
+	position:relative;
+}
+
+.single-jetpack-portfolio .video_icon{
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-ms-transform: translate(50px, 100px);
+	-webkit-transform: translate(50px, 100px);
+	transform: translate(-50%, -50%);
+}
