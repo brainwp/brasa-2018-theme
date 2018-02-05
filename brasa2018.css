@@ -174,3 +174,17 @@ footer.site-footer .site-info{
 	-webkit-transform: translate(50px, 100px);
 	transform: translate(-50%, -50%);
 }
+/**
+ *
+ * Single portfolio
+ *
+*/
+body.single-jetpack-portfolio #conteudo h3 {
+	font-size:40px;
+	text-transform: uppercase;
+	padding-top: 40px;
+    padding-bottom: 10px;
+}
+body.single-jetpack-portfolio #conteudo .conteudo-interno {
+	font-size: 1.25rem;
+}
