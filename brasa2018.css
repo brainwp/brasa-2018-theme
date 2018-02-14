@@ -179,7 +179,8 @@ footer.site-footer .site-info{
  * Single portfolio
  *
 */
-body.single-jetpack-portfolio #conteudo h3 {
+body.single-jetpack-portfolio #conteudo h3,
+body.single-jetpack-portfolio #mais h2 {
 	font-size:40px;
 	text-transform: uppercase;
 	padding-top: 40px;
@@ -187,4 +188,18 @@ body.single-jetpack-portfolio #conteudo h3 {
 }
 body.single-jetpack-portfolio #conteudo .conteudo-interno {
 	font-size: 1.25rem;
+}
+nav.menu-portfolio {
+	background:#e5e5e5;
+	position: fixed;
+	z-index: 99;
+	right:-20vw;
+	transition:700ms linear all;
+	opacity:0.7;
+	top:24vh;
+}
+nav.menu-portfolio.active {
+	opacity: 1;
+	right: 15px;
+	transition:700ms linear all;
 }

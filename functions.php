@@ -35,7 +35,7 @@ function brasa2018_enqueue_scripts() {
 	wp_enqueue_style( 'brasa2018-css', $template_url . '/brasa2018.css', array(), null, 'all' );
 
 	// Loads Brasa2018 JS file
-	//wp_enqueue_script( 'brasa2018-js', $template_url . '/brasa2018.js', array(), null, true );
+	wp_enqueue_script( 'brasa2018-js', $template_url . '/brasa2018.js', array(), null, true );
 }
 
 add_action( 'wp_footer', 'brasa2018_enqueue_scripts', 1 );

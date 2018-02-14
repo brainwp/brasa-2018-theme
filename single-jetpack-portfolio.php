@@ -10,6 +10,44 @@
 get_header(); ?>
 
 	<div id="content" class="site-content">
+		<nav class="col-md-2 menu-portfolio" id="menu-portfolio-scroll">
+			<h3>
+				<?php _e( 'Menu', 'brasa2018' );?>
+			</h3>
+			<ul id="menu-portfolio-container">
+				<li>
+					<a href="#slider">
+						<?php _e( 'Imagens', 'brasa2018' );?>
+					</a>
+				</li>
+				<li>
+					<a href="#desafio">
+						<?php _e( 'Desafio', 'brasa2018' );?>
+					</a>
+				</li>
+				<li>
+					<a href="#solucao">
+						<?php _e( 'Solução', 'brasa2018' );?>
+					</a>
+				</li>
+				<li>
+					<a href="#impacto">
+						<?php _e( 'Impacto', 'brasa2018' );?>
+					</a>
+				</li>
+				<li>
+					<a href="#video">
+						<?php _e( 'Vídeo', 'brasa2018' );?>
+					</a>
+				</li>
+				<li>
+					<a href="#depoimentos">
+						<?php _e( 'Depoimentos', 'brasa2018' );?>
+					</a>
+				</li>
+
+			</ul>
+		</nav><!-- .col-md-4 menu-portfolio -->
       <?php while ( have_posts() ) : the_post(); ?>
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
           <section class="secao secao-full row" id="slider">
@@ -37,11 +75,12 @@ get_header(); ?>
             if( $solucao ) {
                 ?>
                 <h3>Solução</h3>
-                <div class="conteudo-interno" id="solução" >
+                <div class="conteudo-interno" id="solucao" >
                   <?php echo $solucao; ?>
                 </div>
                 <?php
             }
+
             if( $impacto ) {
                 ?>
                 <h3>Impacto</h3>
@@ -65,10 +104,11 @@ get_header(); ?>
             </section>
           <?php
           } ?>
-
+          <?php /*
           <section class="secao secao-margin row" id="depoimentos">
             <h3>Depoimentos</h3>
           </section>
+          */?>
           <section class="secao secao-margin row" id="mais">
             <h2>Veja mais trabalhos</h2>
             <?php
