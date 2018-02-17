@@ -237,8 +237,34 @@ function my_acf_settings_dir( $dir ) {
 
 
 // 3. Hide ACF field group menu item
-add_filter('acf/settings/show_admin', '__return_false');
+// add_filter('acf/settings/show_admin', '__return_false');
 
 
 // 4. Include ACF
 include_once( get_stylesheet_directory() . '/inc/advanced-custom-fields/acf.php' );
+
+// 4. Include ACF Fields
+include_once( get_stylesheet_directory() . '/inc/acf-fields.php' );
+
+/**
+ * Change permalink to the old permalink on the old version of the brasa site
+ * @param string $permalink
+ * @param object $post
+ * @param string|null $leavename
+ * @return string
+ */
+function redirect_portfolio_to_the_old_site( $permalink, $post, $leavename = null ) {
+	if ( is_admin() ) {
+		return $permalink;
+	}
+	if ( ! is_object( $post ) || 'jetpack-portfolio' != $post->post_type ) {
+		return $permalink;
+	}
+	if ( $link = get_post_meta( $post->ID, 'portfolio_redirect', true ) ) {
+		if ( ! empty( $link ) ) {
+			return $link;
+		}
+	}
+	return $permalink;
+}
+add_filter( 'post_type_link', 'redirect_portfolio_to_the_old_site', 10, 3 );
