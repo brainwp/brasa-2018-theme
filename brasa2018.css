@@ -4,6 +4,11 @@ Você pode adicionar seu próprio CSS aqui.
 Clique no ícone de ajuda acima para saber mais.
 */
 
+/*
+Load source sans pro
+*/
+@import( 'https://fonts.googleapis.com/css?family=Source+Sans+Pro' );
+
 @media ( max-width: 520px ) {
 	section#hero h2.hero-large-text > img {
 		max-width: 75%;

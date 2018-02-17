@@ -31,7 +31,7 @@ function brasa2018_enqueue_scripts() {
 
 
 	// Loads Brasa2018 CSS file
-	wp_enqueue_style( 'brasa2018-sourcesans', 'https://fonts.googleapis.com/css?family=Source+Sans+Pro', array(), null, 'all' );
+	wp_enqueue_style( 'brasa2018-sourcesans', 'https://fonts.googleapis.com/css?family=Source+Sans+Pro', array(), null, 'all', true );
 	wp_enqueue_style( 'brasa2018-css', $template_url . '/brasa2018.css', array(), null, 'all' );
 
 	// Loads Brasa2018 JS file
@@ -151,7 +151,7 @@ add_action( 'init', 'custom_post_type_equipe', 0 );
 //         return;
 //     }
 // }
-add_action( 'pre_get_posts', 'team_query' );
+//add_action( 'pre_get_posts', 'team_query' );
 
 require get_template_directory() . '/inc/class-metabox.php';
 $team_metabox = new Odin_Metabox(
@@ -268,3 +268,11 @@ function redirect_portfolio_to_the_old_site( $permalink, $post, $leavename = nul
 	return $permalink;
 }
 add_filter( 'post_type_link', 'redirect_portfolio_to_the_old_site', 10, 3 );
+
+/**
+ * Remove jetpack devicepx script
+ */
+function brasa_2018_jp_dequeue_devicepx() {
+	wp_dequeue_script( 'devicepx' );
+}
+add_action( 'wp_enqueue_scripts', 'brasa_2018_jp_dequeue_devicepx' );
