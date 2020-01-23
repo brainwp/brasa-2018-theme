@@ -209,7 +209,7 @@ $team_metabox->set_fields(
 );
 
 // 1. customize ACF path
-add_filter('acf/settings/path', 'my_acf_settings_path');
+// add_filter('acf/settings/path', 'my_acf_settings_path');
 
 function my_acf_settings_path( $path ) {
 
@@ -223,7 +223,7 @@ function my_acf_settings_path( $path ) {
 
 
 // 2. customize ACF dir
-add_filter('acf/settings/dir', 'my_acf_settings_dir');
+// add_filter('acf/settings/dir', 'my_acf_settings_dir');
 
 function my_acf_settings_dir( $dir ) {
 
@@ -241,7 +241,7 @@ function my_acf_settings_dir( $dir ) {
 
 
 // 4. Include ACF
-include_once( get_stylesheet_directory() . '/inc/advanced-custom-fields/acf.php' );
+// include_once( get_stylesheet_directory() . '/inc/advanced-custom-fields/acf.php' );
 
 // 4. Include ACF Fields
 include_once( get_stylesheet_directory() . '/inc/acf-fields.php' );
@@ -276,3 +276,38 @@ function brasa_2018_jp_dequeue_devicepx() {
 	wp_dequeue_script( 'devicepx' );
 }
 add_action( 'wp_enqueue_scripts', 'brasa_2018_jp_dequeue_devicepx' );
+
+
+/**
+ * Prefixo (Brasa Landing Page) brasalp_*
+ * 
+ * Usar a verificação is_page_template( 'page-express.php' )
+ */
+
+function brasalp_footer() {
+  
+  if ( is_page_template( 'page-landingpage.php' ) ) :
+  ?>
+
+  <footer class="footer-main">
+    <div class="container">
+
+      <nav>
+          <ul>
+              <li><a href="https://brasa.art.br">Quem Somos</a></li>
+              <li><a href="https://brasa.art.br/contato">Contato</a></li>
+          </ul>
+      </nav>
+
+      <div class="credits">
+          <span>Desenvolvido pela </span><a class="brasa" href="https://brasa.art.br/"></a><span> com </span><a class="wordpress" href="https://brasa.art.br/category/dicas-e-truques-wordpress/">WordPress</a>
+      </div><!-- /.credits -->
+
+    </div><!-- /.container -->
+  </footer><!-- footer-main -->
+
+	<?php
+  endif;
+  
+}
+add_action( 'wp_footer', 'brasalp_footer', 100 );
